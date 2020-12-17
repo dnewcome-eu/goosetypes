@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "goosetypes"
+version = "0.1.0"
+description = ""
+authors = ["Ivan D Vasin <nisavid@gmail.com>", "Dan Newcome <dnewcome@earnup.com>"]
+packages = [
+    { include = "./goosetypes/**/*.py" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+twine = "^3.2.0"
+
+[[tool.poetry.source]]
+name = "EarnUp Internal Nexus"
+url = "https://nexus.earnup.com/repository/PyPI-Internal/simple"
+default = true
+
+[build-system]
+requires = ["poetry-core>=1.0.0a5"]
+build-backend = "poetry.core.masonry.api"
+
