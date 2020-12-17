@@ -3,7 +3,7 @@
 __copyright__ = "Copyright (C) 2014 Ivan D Vasin"
 __docformat__ = "restructuredtext"
 
-import __builtin__
+import builtins
 from abc import ABCMeta as _ABCMeta, abstractmethod as _abstractmethod
 from collections import Callable as _Callable
 
@@ -105,7 +105,7 @@ def instance_of(type, excluded_types=(), displayname=None):
                    '_wrapped_type': _wrapped_type}
     if displayname_ is not None:
         class_attrs['displayname'] = displayname_
-    return __builtin__.type(classname, (InstanceOfType,), class_attrs)
+    return builtins.type(classname, (InstanceOfType,), class_attrs)
 
 
 def subclass_of(type, excluded_types=(), displayname=None):
@@ -141,7 +141,7 @@ def subclass_of(type, excluded_types=(), displayname=None):
                    '_wrapped_type': _wrapped_type}
     if displayname_ is not None:
         class_attrs['displayname'] = displayname_
-    return __builtin__.type(classname, (SubclassOfType,), class_attrs)
+    return builtins.type(classname, (SubclassOfType,), class_attrs)
 
 
 class GooseTypeMeta(_ABCMeta):
@@ -226,7 +226,7 @@ class SubclassOfType(GooseType):
 
     @classmethod
     def _type_issubclass(cls, type):
-        return issubclass(type, __builtin__.type)
+        return issubclass(type, builtins.type)
 
     @classmethod
     def _value_isinstance(cls, value):
